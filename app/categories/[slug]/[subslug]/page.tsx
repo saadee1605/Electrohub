@@ -115,7 +115,6 @@ export default function Page() {
         <div className="text-center">
           <p className="text-3xl font-bold md:text-5xl">{product.name}</p>
           <p className="text-xl mt-2">{product.description}</p>
-          import Image from "next/image";
           <Image
             src={product.image}
             alt={product.name}
