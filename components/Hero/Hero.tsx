@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 export default function Hero() {
   return (
     <>
-      <div className="mt-48 md:mt-36 p-3 ">
+      <div className="mt-20 md:mt-36 p-3 ">
         <div className="  flex flex-col items-center justify-center space-y-3">
           <div className="space-y-6 ">
             {" "}
@@ -19,11 +19,11 @@ export default function Hero() {
           </div>
           <div className="w-full space-y-3 md:w-1/2 md:space-x-4  flex flex-col md:space-y-0 md:flex-row items-center justify-center m-auto text-center">
             {" "}
-            <Link href="/practiceareas">
+            <Link href="/products">
               {" "}
               <Button>Shop Now</Button>
             </Link>
-            <Link href="/about-us">
+            <Link href="/categories">
               {" "}
               <Button>Explore Categories</Button>
             </Link>

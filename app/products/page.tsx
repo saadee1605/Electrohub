@@ -1,7 +1,7 @@
 "use client";
+import Card from "@/components/Card/Card";
+import { getallProducts } from "@/actions/Products";
 import { useEffect, useState } from "react";
-import Card from "../Card/Card";
-import { getHotProducts } from "@/actions/Products";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface Product {
@@ -14,23 +14,24 @@ interface Product {
   description: string;
 }
 
-export default function HotProducts() {
-  const [hotProducts, setHotProducts] = useState<Product[] | null>(null);
+export default function Page() {
+
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
-    async function fetchHotProducts() {
-      try {
-        const data = await getHotProducts();
 
-        setHotProducts(data);
+    async function getProducts() {
+      try {
+        const products: Product[] = await getallProducts();
+        setProducts(products);
       } catch (error) {
-        console.error("Error fetching hot products:", error);
+        console.error("Error fetching products:", error);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchHotProducts();
+    getProducts();
   }, []);
   if (loading) {
     return (
@@ -59,11 +60,11 @@ export default function HotProducts() {
   return (
     <div className="mt-20 md:mt-36 p-3">
       <p className="text-3xl font-bold md:text-5xl text-center">
-        Best Hot Products
+        Electro-Hub - all porducts
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-        {hotProducts && hotProducts.length > 0 ? (
-          hotProducts.map((product) => (
+        {products.length > 0 ? (
+          products.map((product: Product) => (
             <Card
               key={product._id}
               id={product._id}
@@ -76,7 +77,7 @@ export default function HotProducts() {
           ))
         ) : (
           <p className="text-center col-span-3 text-xl">
-            No hot products available.
+            No products available.
           </p>
         )}
       </div>

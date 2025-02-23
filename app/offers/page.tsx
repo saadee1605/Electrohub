@@ -23,7 +23,7 @@ export default function page() {
   ];
 
   return (
-    <div className="mt-48 md:mt-36 p-6 max-w-4xl mx-auto">
+    <div className="mt-20 md:mt-36 p-6 max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold text-center mb-6">Exclusive Offers</h1>
       <p className="text-lg text-gray-700 text-center mb-8">
         Check out our latest deals and discounts. Shop now and save more!

@@ -63,7 +63,7 @@ export default function Page() {
 
   if (loading) {
     return (
-      <div className="mt-48 md:mt-36 p-3">
+      <div className="mt-20 md:mt-36 p-3">
         <div className="grid grid-cols-2 h-screen">
           {/* Left Section Skeleton */}
           <div className="text-center">
@@ -85,7 +85,7 @@ export default function Page() {
           <p className="text-2xl font-bold text-center mb-6">
             Related Products
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {Array(3)
               .fill(0)
               .map((_, index) => (
@@ -99,7 +99,7 @@ export default function Page() {
 
   if (error || !product) {
     return (
-      <div className="mt-48 md:mt-36 p-3">
+      <div className="mt-20 md:mt-36 p-3">
         <p className="text-3xl font-bold md:text-5xl text-center">
           Product not found
         </p>
@@ -108,8 +108,8 @@ export default function Page() {
   }
 
   return (
-    <div className="mt-48 md:mt-36 p-3">
-      <div className="grid grid-cols-2 h-screen">
+    <div className="mt-20 lg:mt-36 p-3 space-x-3">
+      <div className="flex flex-col md:grid md:grid-cols-2 ">
         <div className="text-center">
           <p className="text-3xl font-bold md:text-5xl">{product.name}</p>
           <p className="text-xl mt-2">{product.description}</p>
@@ -120,7 +120,7 @@ export default function Page() {
           />
           <p className="text-xl font-semibold mt-2">${product.price}</p>
         </div>
-        <div className="overflow-y-auto max-h-96 p-4 border rounded-lg">
+        <div className="md:overflow-y-auto md:max-h-96 p-4 border rounded-lg">
           <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2>
 
           {reviews.length > 0 ? (
@@ -139,9 +139,9 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="mt-12 border-t pt-5">
+      <div className="mt-12  pt-5">
         <p className="text-2xl font-bold text-center mb-6">Related Products</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {relatedProducts.length > 0 ? (
             relatedProducts.map((product) => (
               <Card

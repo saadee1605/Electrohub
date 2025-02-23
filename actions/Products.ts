@@ -11,7 +11,7 @@ interface Product {
   description: string;
 }
 
-export async function getProducts(): Promise<Product[]> {
+export async function getallProducts(): Promise<Product[]> {
   await connectDB();
 
   const allProducts = await ProductModel.find().lean();
