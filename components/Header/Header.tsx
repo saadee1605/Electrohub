@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Info, Tag, ShoppingCart, LayoutDashboard } from "lucide-react";
+import { Home, Info, Tag, ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
 import Dropdown from "../Dropdown/Dropdown";
 import useCartStore from "@/store/cart-store";
@@ -60,9 +60,19 @@ export default function Header() {
                     : "text-black"
                 }`}
               >
-                
-                <Icon size={20} className={`hidden lg:block ${totalQuantity > 0 ? "text-green-600" : ""}`} />
-                <p  className={`text-sm lg:text-lg ${totalQuantity > 0 ? "text-green-600" : ""}`}>{name}</p>
+                <Icon
+                  size={20}
+                  className={`hidden lg:block ${
+                    totalQuantity > 0 ? "text-green-600" : ""
+                  }`}
+                />
+                <p
+                  className={`text-sm lg:text-lg ${
+                    totalQuantity > 0 ? "text-green-600" : ""
+                  }`}
+                >
+                  {name}
+                </p>
               </Link>
             ))}
 

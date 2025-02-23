@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { getSingleProduct, getCategoryWiseProduct } from "@/actions/Products";
 import { Skeleton } from "@/components/ui/skeleton";
 import reviews from "@/Data/Reviews";
+import Image from "next/image";
+
 interface Product {
   _id: string;
   name: string;
@@ -113,10 +115,14 @@ export default function Page() {
         <div className="text-center">
           <p className="text-3xl font-bold md:text-5xl">{product.name}</p>
           <p className="text-xl mt-2">{product.description}</p>
-          <img
+          import Image from "next/image";
+          <Image
             src={product.image}
             alt={product.name}
+            width={256} // 64 * 4 (tailwind width conversion)
+            height={256} // 64 * 4 (tailwind height conversion)
             className="w-64 h-64 mx-auto mt-4"
+            priority // Optional: Improves loading performance
           />
           <p className="text-xl font-semibold mt-2">${product.price}</p>
         </div>

@@ -4,7 +4,7 @@ import Hero from "@/components/Hero/Hero";
 import Hotproducts from "@/components/Hotproducts/Hotproducts";
 import { useState } from "react";
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition] = useState({ x: 0, y: 0 });
   return (
     <div>
       <div

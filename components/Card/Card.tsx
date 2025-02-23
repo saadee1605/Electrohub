@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import useCartStore from "@/store/cart-store"; // Import Zustand store
+import Image from "next/image";
 
 interface CardProps {
   id: string;
@@ -28,11 +29,14 @@ export default function Card({
 
   return (
     <div key={id} className="card border p-4 rounded-lg shadow-md">
-      <img
-        src={image}
-        alt={name}
-        className="w-full h-48 object-cover rounded-md"
-      />
+     <Image
+  src={image}
+  alt={name}
+  width={500} // Adjust as needed
+  height={192} // 48 * 4 (tailwind height conversion)
+  className="w-full h-48 object-cover rounded-md"
+  priority // Optional for better loading performance
+/>
       <div className="mt-4 space-y-2">
         <h3 className="text-lg font-bold">{name}</h3>
         <p className="text-sm text-gray-600 uppercase underline">{category}</p>

@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import categories from "@/Data/Categories";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Page() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -53,11 +54,14 @@ export default function Page() {
           <div className="grid mt-10 sm:grid-cols-2 md:grid-cols-3 gap-5 px-4">
             {categories.map((category, index) => (
               <div key={index} className="space-y-4 border-r">
-                <img
-                  src={category.image}
-                  alt=""
-                  className="w-full h-48 object-cover rounded-md"
-                />
+               <Image
+  src={category.image}
+  alt="Category Image"
+  width={500} // Adjust as needed
+  height={192} // 48 * 4 (tailwind height conversion)
+  className="w-full h-48 object-cover rounded-md"
+  priority // Optional: Improves loading performance
+/>
                 <p className="font-bold">{category.name}</p>
                 <p>{category.description}</p>
 

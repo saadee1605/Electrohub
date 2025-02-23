@@ -8,7 +8,7 @@ interface Cart{
     price:number
 }
 export default function Cart() {
-  const { cart, totalQuantity, addToCart, removeFromCart } = useCartStore();
+  const { cart, totalQuantity, removeFromCart } = useCartStore();
 
   return (
     <div className="mt-20 md:mt-36 max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
